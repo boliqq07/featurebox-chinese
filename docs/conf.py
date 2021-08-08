@@ -60,8 +60,6 @@ html_static_path = ['_static']
 locale_dirs = ['locale/']
 gettext_compact = False
 
-language = "zh_CN"
-
 autoclass_content = 'both'
 
 source_suffix = {
