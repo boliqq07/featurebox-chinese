@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-01-05 00:05+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../Guide/background.rst:2
+msgid "Sample Data and Background"
+msgstr ""
+
+#: ../../Guide/background.rst:5
+msgid "Sample data"
+msgstr ""
+
+#: ../../Guide/background.rst:7
+msgid ""
+"Download: `structure_list "
+"<https://github.com/boliqq07/featurebox/blob/master/test/structure_data/sample_data.pkl_pd>`_"
+msgstr ""
+
+#: ../../Guide/background.rst:9
+msgid "Usage:"
+msgstr ""
+
+#: ../../Guide/background.rst:16
+msgid "Background"
+msgstr ""
+
+#: ../../Guide/background.rst:18
+msgid ""
+"The Structure from ``pymatgen`` is one class to represent the crystal "
+"structure data, which contain all message of atoms and their sites."
+msgstr ""
+
+#: ../../Guide/background.rst:21
+msgid "link:"
+msgstr ""
+
+#: ../../Guide/background.rst:23
+msgid "`pymatgen <https://pymatgen.org/>`_"
+msgstr ""
+
+#: ../../Guide/background.rst:25
+msgid ""
+"`pymatgen Structure <https://pymatgen.org/usage.html#reading-and-writing-"
+"structures-molecules>`_"
+msgstr ""
+
+#: ../../Guide/background.rst:27
+msgid "From this type data, we could extract necessary message."
+msgstr ""
+
+#: ../../Guide/background.rst:29
+msgid "such as for batch data (used by ``transform`` ):"
+msgstr ""
+
+#: ../../Guide/background.rst:34
+msgid "such as for single case (used by ``convert`` ):"
+msgstr ""
+
+#: ../../Guide/background.rst:41
+msgid ""
+"In this packages, we accept data with type like ``name_dict_data`` , "
+"``number_data``  as input data, Meanwhile, The above extract are built in"
+" code, thus we could accept ``structure_1`` , ``structure_list`` "
+"directly."
+msgstr ""
+
+#: ../../Guide/background.rst:45
+msgid ""
+"The ``ase.Atoms`` could convert by Adaptor ``AseAtomsAdaptor`` from "
+"pymatgen. ``featurebox.utils.general.AAA``"
+msgstr ""
+
+#: ../../Guide/background.rst:48
+msgid ""
+"Of course, The data ``name_dict_data`` , ``number_data`` could build by "
+"yourself from you code."
+msgstr ""
+
+#~ msgid ""
+#~ "link: `pymatgen <https://pymatgen.org/>`_ `pymatgen"
+#~ " Structure <https://pymatgen.org/usage.html#reading-"
+#~ "and-writing-structures-molecules>`_"
+#~ msgstr ""
+

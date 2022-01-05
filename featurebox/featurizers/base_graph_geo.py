@@ -35,16 +35,14 @@ import torch_geometric
 from mgetool.tool import parallelize, batch_parallelize
 from pymatgen.core import Structure
 
-from featurebox.featurizers.base_transform import DummyConverter, BaseFeature, Converter, ConverterCat
-from featurebox.featurizers.envir.environment import GEONNGet, env_method, env_names
-from featurebox.featurizers.envir.local_env import NNDict
-from featurebox.utils.look_json import get_marked_class
+from featurebox.featurizers.base_feature import DummyConverter, BaseFeature, ConverterCat
+from featurebox.featurizers.envir.environment import GEONNGet
 
 
 class _BaseStructureGraphGEO(BaseFeature):
 
     def __init__(self, collect=False, return_type="tensor", batch_calculate: bool = True,
-                 add_label=False,
+                 add_label=False, check=True,
                  **kwargs):
         """
 
@@ -56,8 +54,6 @@ class _BaseStructureGraphGEO(BaseFeature):
         """
         super().__init__(batch_calculate=batch_calculate, **kwargs)
         self.graph_data_name = []
-        if collect is False:
-            self.get_collect_data = lambda x: x
 
         assert return_type in ["tensor", "np", "numpy", "array", "ndarray"]
 
@@ -70,6 +66,7 @@ class _BaseStructureGraphGEO(BaseFeature):
         self.collect = collect
         self.convert_funcs = [i for i in dir(self) if "_convert_" in i]
         self.add_label = add_label
+        self.check = check
 
     def __add__(self, other):
         raise TypeError("There is no add.")
@@ -81,7 +78,7 @@ class _BaseStructureGraphGEO(BaseFeature):
     def _get_dummy_converter() -> DummyConverter:
         return DummyConverter()
 
-    def _transform(self, structures: List[Structure], **kwargs):
+    def _transform(self, structures: List[Structure], **kwargs) -> List[Dict]:
         """
 
         Args:
@@ -122,13 +119,15 @@ class _BaseStructureGraphGEO(BaseFeature):
 
         if self.add_label and self.return_type == "tensor":
             [i.update({"label": torch.tensor([n, n])}) for n, i in enumerate(ret)]  # double for after.
-        else:
+        elif self.add_label:
             [i.update({"label": np.array([n, n])}) for n, i in enumerate(ret)]  # double for after.
+        else:
+            pass
         return ret
 
     def get_collect_data(self, graphs: List[Dict]):
         """
-        Not used in default.
+        Not used in default, just for shown.
 
         Expand the graph dictionary to form a list of features and targets tensors.
         This is useful when the model is trained on assembled graphs on the fly.
@@ -138,6 +137,8 @@ class _BaseStructureGraphGEO(BaseFeature):
             graphs: list of dict
                 list of graph dictionary for each structure
         """
+        if self.collect is False:
+            return graphs
 
         output = {}  # Will be a list of arrays
 
@@ -150,9 +151,10 @@ class _BaseStructureGraphGEO(BaseFeature):
                 output[n] = np_data
         return output
 
-    def transform(self, structures: List[Structure], **kwargs):
+    def transform(self, structures: List[Structure], state_attributes=None, y=None, **kwargs) -> List[
+        Dict]:
         """
-        use ``convert`` to deal with batch of data.
+        New type of transform structure.
 
         Args:
             structures: (list)
@@ -164,10 +166,30 @@ class _BaseStructureGraphGEO(BaseFeature):
         Returns:
             data
         """
+        data = self._transform(structures, state_attributes=state_attributes, y=y, **kwargs)
+        if self.check:
+            data = np.array(data)[np.array(self.support_)].tolist()
 
+        return data
+
+    def transform_and_collect(self, structures: List[Structure], **kwargs) -> Dict:
+        """
+        New type of transform structure.
+
+        Args:
+            structures: (list)
+                preprocessing of samples need to transform to Graph.
+            state_attributes: (list)
+                preprocessing of samples need to add to Graph.
+            y: (list)
+                Target to train against (the same size with structure)
+        Returns:
+            data
+        """
+        self.collect = True
         return self.get_collect_data(self._transform(structures, **kwargs))
 
-    def save(self, obj, name, root_dir="."):
+    def save(self, obj, name, root_dir=".") -> None:
         """Save."""
         torch.save(obj, os.path.join(root_dir, "raw", '{}.pt'.format(name)))
 
@@ -184,7 +206,7 @@ class _BaseStructureGraphGEO(BaseFeature):
         else:
             return names
 
-    def transform_and_save(self, *args, root_dir=".", file_names="composition_name", save_mode="i"):
+    def transform_and_save(self, *args, root_dir=".", file_names="composition_name", save_mode="i", **kwargs):
         r"""Save the data to 'root_dir/raw' """
         raw_path = os.path.join(root_dir, "raw")
         if os.path.isdir(raw_path):
@@ -192,7 +214,7 @@ class _BaseStructureGraphGEO(BaseFeature):
         os.makedirs(raw_path)
 
         fns = self.check_dup(args[0], file_names=file_names)
-        result = self.transform(*args)
+        result = self.transform(*args, **kwargs)
         print("Save raw files to {}.".format(raw_path))
         if save_mode in ["I", "R", "i", "r", "Respective", "respective"]:
             [self.save(i, j, root_dir) for i, j in zip(result, fns)]
@@ -201,10 +223,10 @@ class _BaseStructureGraphGEO(BaseFeature):
         print("Done.")
         return result
 
-    def transform_and_to_data(self, *args) -> List[torch_geometric.data.Data]:
+    def transform_and_to_data(self, *args, **kwargs) -> List[torch_geometric.data.Data]:
         """Return list of torch_geometric.data.Data."""
         from torch_geometric.data import Data
-        result = self._transform(*args)
+        result = self.transform(*args, **kwargs)
         return [Data.from_dict(i) for i in result]
 
     def convert(self, structure: Structure, **kwargs) -> Dict:
@@ -247,11 +269,25 @@ class _BaseStructureGraphGEO(BaseFeature):
                                       "such as ``_convert_edge_attr``.")
         result_old = [getattr(self, i)(structure, **kwargs) for i in convert_funcs]
         result = {}
-        [result.update(i) for i in result_old]
+        for dcti in result_old:
+            for k in dcti:
+                if k in result:
+                    result[k] = np.concatenate((result[k], dcti[k]),
+                                               axis=-1)  # please just for state-attr,edge_attr, and x
+                else:
+                    result[k] = dcti[k]
+        result = {key: value for key, value in result.items() if key in self.graph_data_name}
+        if self.check:
+            for key, value in result.items():
+                if key != "y":
+                    if not np.all(np.isreal(value)):
+                        raise ValueError(
+                            "There is not real numerical data for {} of {}.  Not Acceptable: nan, infinite, complex.".format(
+                                structure.composition, key))
+
         if self.return_type == "tensor":
             result = rs(result)
-        else:
-            result = {key: value for key, value in result.items() if key in self.graph_data_name}
+
         return result
 
     def _convert_sample(self, *args, **kwargs):
@@ -280,7 +316,7 @@ class BaseStructureGraphGEO(_BaseStructureGraphGEO):
     ``z``: atom numbers. np.ndarray, with shape [num_nodes,]
 
     Examples:
-        >>> from torch_geometric.data.dataloader import DataLoader
+        >>> from torch_geometric.loader import DataLoader
         >>> sg1 = BaseStructureGraphGEO()
         >>> data_list = sg1.transform_and_to_data(structures_checked)
         >>> loader = DataLoader(data_list, batch_size=3)
@@ -291,8 +327,8 @@ class BaseStructureGraphGEO(_BaseStructureGraphGEO):
     """
 
     def __init__(self,
-                 atom_converter: Converter = None,
-                 state_converter: Converter = None,
+                 atom_converter: BaseFeature = None,
+                 state_converter: BaseFeature = None,
                  **kwargs):
         """
 
@@ -363,12 +399,16 @@ class BaseStructureGraphGEO(_BaseStructureGraphGEO):
             atoms = self.atom_converter.convert(structure)
 
         atoms = atoms.astype(dtype=np.float32)
+        if atoms.ndim <= 1:
+            atoms = atoms.reshape(1, -1)
         z = z.astype(dtype=np.int64)
         return {'x': atoms, "z": z}
 
     def _convert_pos(self, structure, **kwargs):
         _ = kwargs
         pos = structure.cart_coords.astype(dtype=np.float32)
+        if pos.ndim <= 1:
+            pos = pos.reshape(1, -1)
         return {'pos': pos}
 
 
@@ -395,7 +435,7 @@ class StructureGraphGEO(BaseStructureGraphGEO):
     Where the state_attr is added newly.
 
     Examples:
-    >>> from torch_geometric.data.dataloader import DataLoader
+    >>> from torch_geometric.loader import DataLoader
     >>> sg1 = BaseStructureGraphGEO()
     >>> data_list = sg1.transform_and_to_data(structures_checked)
     >>> loader = DataLoader(data_list, batch_size=3)
@@ -406,15 +446,17 @@ class StructureGraphGEO(BaseStructureGraphGEO):
 
     def __init__(self, nn_strategy="find_points_in_spheres",
                  bond_generator=None,
-                 bond_converter: Converter = None,
+                 bond_converter: BaseFeature = None,
                  cutoff: float = 5.0,
+                 pbc=True,
                  **kwargs):
         """
         Args:
             nn_strategy: (str) NearNeighbor strategy.
                 ["find_points_in_spheres", "find_xyz_in_spheres",
                 "BrunnerNN_reciprocal", "BrunnerNN_real", "BrunnerNN_relative",
-                "EconNN", "CrystalNN", "MinimumDistanceNNAll", "find_points_in_spheres","UserVoronoiNN"]
+                "EconNN", "CrystalNN", "MinimumDistanceNNAll", "find_points_in_spheres","UserVoronoiNN",
+                "ACSF","BehlerParrinello","EAD","EAMD","SOAP","SO3","SO4_Bispectrum","wACSF",]
             atom_converter: (BinaryMap) atom features converter.
                 See Also:
                 :class:`featurebox.test_featurizers.atom.mapper.AtomTableMap` , :class:`featurebox.test_featurizers.atom.mapper.AtomJsonMap` ,
@@ -427,7 +469,7 @@ class StructureGraphGEO(BaseStructureGraphGEO):
                 :class:`featurebox.test_featurizers.state.state_mapper.StructurePymatgenPropMap`
                 :mod:`featurebox.test_featurizers.state.statistics`
                 :mod:`featurebox.test_featurizers.state.union`
-            bond_generator: (GEONNGet, str)
+            bond_generator: (GEONNGet, )
                 bond features converter.
             cutoff: (float)
                 Whether to use depends on the ``nn_strategy``.
@@ -436,33 +478,20 @@ class StructureGraphGEO(BaseStructureGraphGEO):
         super().__init__(**kwargs)
         self.cutoff = cutoff
 
-        if bond_generator is None:  # default use GEONNDict
-            nn_strategy = get_marked_class(nn_strategy, NNDict)
-            # there use the universal parameter, custom it please
-            self.bond_generator = GEONNGet(nn_strategy,
-                                           numerical_tol=1e-8, pbc=None, cutoff=cutoff)
-        elif isinstance(bond_generator, str):  # new add "BaseDesGet"
-            # todo
-            self.nn_strategy = get_marked_class(nn_strategy, env_method[bond_generator])
-            # there use the universal parameter, custom it please
-            self.bond_generator = env_names[bond_generator](self.nn_strategy, self.cutoff,
-                                                            numerical_tol=1e-8, pbc=None, cutoff=self.cutoff)
-        else:  # defined BaseDesGet or BaseNNGet
-            # todo
+        if bond_generator is None or bond_generator == "GEONNDict":  # default use GEONNDict
+            self.bond_generator = GEONNGet(nn_strategy, numerical_tol=1e-8, pbc=pbc, cutoff=cutoff)
+        else:
             self.bond_generator = bond_generator
-            self.nn_strategy = self.bond_generator.nn_strategy
 
         self.bond_converter = bond_converter or self._get_dummy_converter()
 
-        self.graph_data_name = ["x", 'edge_index', "edge_weight", "edge_attr", 'y', 'pos', "state_attr", 'z']
+        self.graph_data_name = ["x", 'y', 'pos', "state_attr", 'z', 'edge_index', "edge_weight", "edge_attr", ]
 
-    def _convert_edges(self, structure, **kwargs):
+    def _convert_edges(self, structure: Structure, **kwargs):
         """get edge data."""
         _ = kwargs
 
         center_indices, edge_index, edge_attr, edge_weight, center_prop = self.bond_generator.convert(structure)
-
-        # remove dup
 
         index = edge_index[0] < edge_index[1]
 
@@ -499,4 +528,22 @@ class StructureGraphGEO(BaseStructureGraphGEO):
         edge_weight = edge_weight.astype(dtype=np.float32)
         edge_attr = edge_attr.astype(dtype=np.float32)
 
-        return {'edge_index': edge_index, "edge_weight": edge_weight, "edge_attr": edge_attr}
+        if edge_index.ndim <= 1:
+            edge_index = edge_index.reshape(2, -1)
+
+        if edge_weight.ndim <= 1:
+            edge_weight = edge_weight.ravel()
+            if edge_weight.shape[0] == 0:
+                raise ValueError(
+                    "Bad data The {} is with no edge_index in cutoff. May lead to later wrong.".format(
+                        structure.composition), )
+
+        if edge_attr.ndim <= 1:
+            edge_attr = edge_attr.reshape(1, -1)
+
+        if center_prop is not None and np.all(np.isreal(center_prop)) and center_prop.size != 1:
+            center_prop = center_prop.astype(dtype=np.float32)
+
+            return {'edge_index': edge_index, "edge_weight": edge_weight, "edge_attr": edge_attr, "x": center_prop}
+        else:
+            return {'edge_index': edge_index, "edge_weight": edge_weight, "edge_attr": edge_attr}
