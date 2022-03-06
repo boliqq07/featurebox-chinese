@@ -75,7 +75,7 @@ def read(d, store=False, store_name="temp.csv"):
     """Run linux cmd and return result, make sure the vaspkit is installed."""
     if os.path.isfile("POTCAR") and os.path.isfile("POSCAR"):
         potcar = Potcar.from_file("POTCAR")
-        symbols = Poscar.from_file("POSCAR").structure.atomic_numbers
+        symbols = Poscar.from_file("POSCAR", check_for_POTCAR=False).structure.atomic_numbers
 
         zval = []
         for i in symbols:
@@ -122,7 +122,7 @@ def run(args, parser):
     if args.job_type in ["S", "s"]:
         res = cal(args.path_name, store=True, store_name=args.out_name)
 
-        print(args.dir_name, res)
+        print(args.path_name, res)
     else:
         assert args.job_type in ["M", "m"]
         bf = BatchFile(args.path_name, suffix=args.suffix)
@@ -187,7 +187,6 @@ class CLICommand:
     Example:
 
     $ featurebox bader -t s -p /home/parent_dir/***/sample_i_dir -if AECCAR0
-
     """
 
     @staticmethod
