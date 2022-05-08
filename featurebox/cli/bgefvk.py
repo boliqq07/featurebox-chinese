@@ -1,8 +1,7 @@
-import argparse
+
 import os
 import numpy as np
 import pandas as pd
-from mgetool.imports import BatchFile
 
 
 # Due to the pymatgen is incorrect of band gap with 2 spin. we use vaspkit for extract data.
@@ -92,6 +91,7 @@ def read(d, store=False, store_name="temp.csv", file_name="BAND_GAP"):
 
 
 def run(args, parser):
+    from mgetool.imports import BatchFile
     if args.job_type in ["S", "s"]:
         res = cal(args.path_name, store=True, store_name=args.out_name)
 
@@ -171,6 +171,7 @@ if __name__ == '__main__':
         
         $ python bgefvk.py -p /home/dir_name -if EIGENVAL
     """
+    import argparse
     parser = argparse.ArgumentParser(description="Get band gaps. Examples：\n"
                                                  "python bgefvk.py -p /home/dir_name -if EIGENVAL")
     parser.add_argument('-p', '--path_name', type=str, default='.')

@@ -1,12 +1,7 @@
-import argparse
-import os
 
 # Due to the pymatgen is incorrect of band gap with 2 spin. we use vaspkit for extract data.
 import pandas as pd
-import pymatgen.io.vasp
-from mgetool.imports import BatchFile
 import os
-
 import numpy as np
 
 # 1
@@ -119,6 +114,7 @@ def cmd_sys(cmds=None):
 
 
 def run(args, parser):
+    from mgetool.imports import BatchFile
     if args.job_type in ["S", "s"]:
         res = cal(args.path_name, store=True, store_name=args.out_name)
 
@@ -213,6 +209,7 @@ if __name__ == '__main__':
     Example:
         $ python bader.py -p /home/dir_name -if AECCAR0
     """
+    import argparse
     parser = argparse.ArgumentParser(description="Get d band centor.Examples:\n"
                                                  "python bader.py -p /home/dir_name -if AECCAR0")
     parser.add_argument('-p', '--path_name', type=str, default='.')

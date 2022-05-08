@@ -48,7 +48,6 @@ def main(prog='featurebox', description='featurebox command line tool.', args=No
                            nargs='?',
                            metavar='sub-command',
                            help='Provide help for sub-command.')
-
     functions = {}
     parsers = {}
     for command, module_name in commands:
@@ -75,7 +74,6 @@ def main(prog='featurebox', description='featurebox command line tool.', args=No
         parsers[command] = subparser
 
     args = parser.parse_args(args)
-
     if args.command == 'help':
 
         if args.helpcommand is None:
@@ -106,6 +104,7 @@ def main(prog='featurebox', description='featurebox command line tool.', args=No
                 parser.error(l1 + l2)
 
 
+
 class Formatter(argparse.HelpFormatter):
     """Improved help formatter."""
 
@@ -130,3 +129,7 @@ class Formatter(argparse.HelpFormatter):
                 out += textwrap.fill(block, width=width) + '\n'
             out += '\n'
         return out[:-1]
+
+
+if __name__ =="__main__":
+    main(args='h')
