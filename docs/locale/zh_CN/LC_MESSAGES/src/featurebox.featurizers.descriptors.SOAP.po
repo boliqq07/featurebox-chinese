@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.descriptors.SOAP.rst:2
+msgid "featurebox.featurizers.descriptors.SOAP module"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:1 of
+msgid ""
+"A class to generate the SO3 power spectrum components based off of the "
+"Gaussian atomic neighbor density function defined in \"On Representing "
+"Atomic Environments\"."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP
+#: featurebox.featurizers.descriptors.SOAP.SOAP.calculate
+#: featurebox.featurizers.descriptors.SOAP.sph_harm of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:5 of
+msgid "int, degree of radial expansion"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:6 of
+msgid "int, degree of spherical harmonic expansion"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:7 of
+msgid "float, cutoff radius for neighbor calculation"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:8 of
+msgid "float, gaussian width parameter"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP:9 of
+msgid "bool, whether to calculate the gradient of not"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP.build_neighbor_list:1 of
+msgid ""
+"Builds a neighborlist for the calculation of bispectrum components for a "
+"given ASE atoms object given in the calculate method."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP.calculate:1 of
+msgid ""
+"Calculates the SO(3) power spectrum components of the smoothened atomic "
+"neighbor density function for given nmax, lmax, rcut, and alpha."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP.calculate:5 of
+msgid "an ASE atoms object corresponding to the desired atomic arrangement"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP.calculate:7 of
+msgid ""
+"string, specifies the method to compute the neighborlist elements, either"
+" ASE or pymatgen"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.SOAP.clear_memory:1 of
+msgid "Clears all memory that isn't an essential attribute for the calculator"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.W:1 of
+msgid ""
+"Constructs the matrix of linear combination coefficients from the overlap"
+" matrix S for the polynomial basis g(r) defined below and in On "
+"Representing Chemical Environments. This normalizes this basis on the "
+"interval [0, rcut]"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.W:6 of
+msgid "W = S^(-1/2)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.add_carraytot:1 of
+msgid "Add the expansion coefficient array for one neighbor to the total"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.compute_carray:1
+#: featurebox.featurizers.descriptors.SOAP.compute_carray_wD:1 of
+msgid ""
+"Get expansion coefficient for one neighbor.  Then add to the whole "
+"expansion coefficient"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.compute_dpidrj:1
+#: featurebox.featurizers.descriptors.SOAP.compute_pi:1 of
+msgid ""
+"Compute the power spectrum components by p(n1,n2,l) by summing over l "
+"There is a symmetry for interchanging n1 and n2 so we only take the "
+"unique elements of the power spectrum."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.g:1 of
+msgid ""
+"Evaluate the radial basis at a given r, given the overlap matrix for the "
+"maximal n."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.get_power_spectrum_components:1 of
+msgid ""
+"Interface to SOAP class, this is the main work function for the power "
+"spectrum calculation."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.get_radial_inner_product:1 of
+msgid ""
+"Chebyshev-Gauss quadrature integral calculator for the radial inner "
+"product as in *cite our paper later*"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.integrand:1 of
+msgid "The integrand of the radial inner product as in *cite our paper later*"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.modifiedSphericalBessel1:1 of
+msgid ""
+"Modified spherical bessel functions of the first kind with and without "
+"first derivative"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.modifiedSphericalBessel1:4 of
+msgid ""
+"We don't have to be careful of the singularity at x=0 as the Chebyshev "
+"quadrature used will never include the point 0"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.modifiedSphericalBessel1:7 of
+msgid "To include GPU support here, we will need to shift to temp variables"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.phi:1 of
+msgid "See g below"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:1 of
+msgid "Spherical harmonics from Wigner-D functions"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:3
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:4 of
+msgid "complex, Cayley-Klein parameter for spherical harmonic"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:5 of
+msgid "int, index of spherical harmonic l >= 0"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:6 of
+msgid "int, index of spherical harmonic -l <= layer <= l"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.sph_harm:8 of
+msgid ""
+"The spherical harmonics are a subset of Wigner-D matrices, and can be "
+"calculated in the same manner"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.SOAP.zero_2D_array:1
+#: featurebox.featurizers.descriptors.SOAP.zero_4D_array:1 of
+msgid "zeros an arbitrary 2D array"
+msgstr ""
+

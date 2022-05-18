@@ -1,0 +1,187 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.state.statistics.rst:2
+msgid "featurebox.featurizers.state.statistics module"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature:1 of
+msgid "Bases: :class:`featurebox.featurizers.atom.mapper.BinaryMap`"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature:1 of
+msgid ""
+"BaseCompositionFeature is the basis for composition data. the subclass "
+"should be re-implemented, such as: ::"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature:10
+#: featurebox.featurizers.state.statistics.DepartElementFeature:20
+#: featurebox.featurizers.state.statistics.ExtraMix:3
+#: featurebox.featurizers.state.statistics.GeometricMean:3
+#: featurebox.featurizers.state.statistics.HarmonicMean:3
+#: featurebox.featurizers.state.statistics.MaxPooling:3
+#: featurebox.featurizers.state.statistics.MinPooling:3
+#: featurebox.featurizers.state.statistics.WeightedAverage:22
+#: featurebox.featurizers.state.statistics.WeightedSum:22
+#: featurebox.featurizers.state.statistics.WeightedVariance:3 of
+msgid "Base class for composition feature."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.convert_dict:1
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.convert_number:1
+#: featurebox.featurizers.state.statistics.DepartElementFeature.convert_dict:1
+#: featurebox.featurizers.state.statistics.DepartElementFeature.convert_number:1
+#: of
+msgid "Convert atom {symbol: fraction} list to numeric features"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function:1
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function:1
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function:1
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function:1
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function:1
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function:1
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function:1
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function:1
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function:1
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function:1 of
+msgid "Elements in compound."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function:3
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function:3
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function:3
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function:3
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function:3
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function:3
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function:3
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function:3
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function:3
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function:3 of
+msgid "Number of each element."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function
+#: featurebox.featurizers.state.statistics.DepartElementFeature.set_feature_labels
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function:6
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function:6
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function:6
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function:6
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function:6
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function:6
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function:6
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function:6
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function:6
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function:6 of
+msgid "**descriptor**"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.BaseCompositionFeature.mix_function
+#: featurebox.featurizers.state.statistics.DepartElementFeature.mix_function
+#: featurebox.featurizers.state.statistics.ExtraMix.mix_function
+#: featurebox.featurizers.state.statistics.GeometricMean.mix_function
+#: featurebox.featurizers.state.statistics.HarmonicMean.mix_function
+#: featurebox.featurizers.state.statistics.MaxPooling.mix_function
+#: featurebox.featurizers.state.statistics.MinPooling.mix_function
+#: featurebox.featurizers.state.statistics.WeightedAverage.mix_function
+#: featurebox.featurizers.state.statistics.WeightedSum.mix_function
+#: featurebox.featurizers.state.statistics.WeightedVariance.mix_function of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature:1
+#: featurebox.featurizers.state.statistics.ExtraMix:1
+#: featurebox.featurizers.state.statistics.GeometricMean:1
+#: featurebox.featurizers.state.statistics.HarmonicMean:1
+#: featurebox.featurizers.state.statistics.MaxPooling:1
+#: featurebox.featurizers.state.statistics.MinPooling:1
+#: featurebox.featurizers.state.statistics.WeightedAverage:1
+#: featurebox.featurizers.state.statistics.WeightedSum:1
+#: featurebox.featurizers.state.statistics.WeightedVariance:1 of
+msgid ""
+"Bases: "
+":class:`featurebox.featurizers.state.statistics.BaseCompositionFeature`"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature:1 of
+msgid "Get the table of element data."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature:4
+#: featurebox.featurizers.state.statistics.WeightedAverage:2
+#: featurebox.featurizers.state.statistics.WeightedSum:2 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature:14 of
+msgid "fea_0_0   fea_0_1   fea_1_0  ...  fea_14_1  fea_15_0  fea_15_1"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature:15 of
+msgid ""
+"0  0.352363  0.561478  0.635952  ... -0.236541 -0.270104 -0.212607 1 "
+"-0.067220  0.025758  0.141113  ... -0.092577 -0.042185  0.080350 "
+"<BLANKLINE> [2 rows x 32 columns]"
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature.set_feature_labels:1
+#: of
+msgid "Generate attribute names."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.DepartElementFeature.set_feature_labels:3
+#: of
+msgid "([str]) attribute labels."
+msgstr ""
+
+#: featurebox.featurizers.state.statistics.ExtraMix:1
+#: featurebox.featurizers.state.statistics.GeometricMean:1
+#: featurebox.featurizers.state.statistics.HarmonicMean:1
+#: featurebox.featurizers.state.statistics.MaxPooling:1
+#: featurebox.featurizers.state.statistics.MinPooling:1
+#: featurebox.featurizers.state.statistics.WeightedVariance:1 of
+msgid ":class:`WeightedSum`"
+msgstr ""
+

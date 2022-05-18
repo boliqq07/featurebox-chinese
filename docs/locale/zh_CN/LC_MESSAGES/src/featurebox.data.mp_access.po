@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.data.mp_access.rst:2
+msgid "featurebox.data.mp\\_access module"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess:1 of
+msgid "API for pymatgen database, access pymatgen to get data."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess:4
+#: featurebox.data.mp_access.MpAccess.get_ids:9 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess
+#: featurebox.data.mp_access.MpAccess.data_fetcher of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess:13 of
+msgid "pymatgen key."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.cifs_to_structures:1 of
+msgid "Get structures from cifs"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:1 of
+msgid "Fetch file from pymatgen."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:3 of
+msgid ""
+"prop_name=['band_gap','density',\"icsd_ids\"'volume','material_id','pretty_formula','elements',\"energy\","
+" "
+"'efermi','e_above_hull','formation_energy_per_atom','final_energy_per_atom','unit_cell_formula',"
+" "
+"'spacegroup','nelements'\"nsites\",\"final_structure\",\"cif\",\"piezo\",\"diel\"]"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:7 of
+msgid "list of MP id of pymatgen."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:9 of
+msgid "prop_names"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:11 of
+msgid "obtain elasticity or not."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher:14 of
+msgid "properties Table."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.data_fetcher of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.get_ids:1 of
+msgid "Search id by criteria."
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.get_ids:3 of
+msgid ""
+"support_property = ['energy', 'energy_per_atom', 'volume', "
+"'formation_energy_per_atom', 'nsites', "
+"'unit_cell_formula','pretty_formula', 'is_hubbard', 'elements', "
+"'nelements', 'e_above_hull', 'hubbards', 'is_compatible', 'spacegroup', "
+"'task_ids',  'band_gap', 'density', 'icsd_id', 'icsd_ids', 'cif', "
+"'total_magnetization','material_id', 'oxide_type', 'tags', 'elasticity']"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.get_ids:24 of
+msgid ""
+"where, ``\"$gt\"`` >,  ``\"$gte\"`` >=,  ``\"$lt\"`` <,  ``\"$lte\"`` <=,"
+"  ``\"$ne\"`` !=,  ``\"$in\"``,  ``\"$nin\"`` (not in), ``\"$or\"``,  "
+"``\"$and\"``,  ``\"$not\"``,  ``\"$nor\"`` ,  ``\"$all\"``"
+msgstr ""
+
+#: featurebox.data.mp_access.MpAccess.get_ids_from_web_table:1 of
+msgid ""
+"This is a add method to read csv file download from web,the file name is "
+"'_Materials Project.csv', which contains \"Materials Id\" columns."
+msgstr ""
+

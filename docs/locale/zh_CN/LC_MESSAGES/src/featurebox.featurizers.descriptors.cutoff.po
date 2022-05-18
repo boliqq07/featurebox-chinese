@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.descriptors.cutoff.rst:2
+msgid "featurebox.featurizers.descriptors.cutoff module"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:1 of
+msgid ""
+"A class for computing cutoff functions (including derivatives) for atom-"
+"centered descriptors. The existing cutoff functions in PyXtal_FF can be "
+"found in: Singraber, A. (2019). J. Chem. Theory Comput., 15, 1827-1840."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:6 of
+msgid ""
+"The type of cutoff function:     1. cosine         f(x) = "
+"0.5*(cos(pi*x)+1)     2. tanh         f(x) = (tanh(1-x))**3     3. "
+"exponent         f(x) = exp(1-(1/(1-x**2)))     4. poly1         f(x) = "
+"x**2(2*x-3)+1     5. poly2         f(x) = x**3(x(15-6*x)-10)+1     6. "
+"poly3         f(x) = x**4(x(x(20*x-70)+84)-35)+1     7. poly4         "
+"f(x) = x**5(x(x(x(315-70*x)-540)+420)-126)+1  where x = R_ij/R_c"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:21 of
+msgid "The type of cutoff function:"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:8 of
+msgid "cosine"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:9 of
+msgid "f(x) = 0.5*(cos(pi*x)+1)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:10 of
+msgid "tanh"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:11 of
+msgid "f(x) = (tanh(1-x))**3"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:12 of
+msgid "exponent"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:13 of
+msgid "f(x) = exp(1-(1/(1-x**2)))"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:14 of
+msgid "poly1"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:15 of
+msgid "f(x) = x**2(2*x-3)+1"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:16 of
+msgid "poly2"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:17 of
+msgid "f(x) = x**3(x(15-6*x)-10)+1"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:18 of
+msgid "poly3"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:19 of
+msgid "f(x) = x**4(x(x(20*x-70)+84)-35)+1"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:21 of
+msgid "poly4"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:21 of
+msgid "f(x) = x**5(x(x(x(315-70*x)-540)+420)-126)+1"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.cutoff.Cutoff:23 of
+msgid "where x = R_ij/R_c"
+msgstr ""
+

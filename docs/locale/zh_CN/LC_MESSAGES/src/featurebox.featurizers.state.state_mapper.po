@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.state.state_mapper.rst:2
+msgid "featurebox.featurizers.state.state\\_mapper module"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap:1 of
+msgid ""
+"Bases: "
+":class:`featurebox.featurizers.atom.mapper._StructurePymatgenPropMap`"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap:1 of
+msgid ""
+"Get property of pymatgen structure preprocessing. default [\"density\", "
+"\"volume\", \"ntypesp\"]"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap:5 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap:9 of
+msgid ""
+"(str,list of str) prop name or list of prop name default [\"density\", "
+"\"volume\", \"ntypesp\"]"
+msgstr ""
+
+#: featurebox.featurizers.state.state_mapper.StructurePymatgenPropMap:12 of
+msgid ""
+"(callable or list of callable) please make sure the size of it is the "
+"same with prop_name."
+msgstr ""
+

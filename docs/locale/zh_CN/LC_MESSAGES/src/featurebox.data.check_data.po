@@ -1,0 +1,99 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.data.check_data.rst:2
+msgid "featurebox.data.check\\_data module"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:1 of
+msgid "Check the element in available elements or not."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:4 of
+msgid "AVAILABLE_ELE_NUMBER:"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:4 of
+msgid "(1~84) + (89, 90, 91, 92)."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:8 of
+msgid "AVAILABLE_ELE_NAME:"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:7 of
+msgid "('H'~'Bi') + ('Ac', 'Th', 'Pa', 'U')."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements
+#: featurebox.data.check_data.CheckElements.check of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:10 of
+msgid "Check by number or name of element. Optional (\"name\",\"number\")"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:12 of
+msgid ""
+"Processing for elements. Such as for element in pymatgen:  >>> func = "
+"lambda x: [x.Z, ] >>> func2 = lambda x: [x.name, ]"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:12 of
+msgid "Processing for elements. Such as for element in pymatgen:"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements:20
+#: featurebox.data.check_data.CheckElements:35 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.check:1 of
+msgid "Names or numbers, or list of pymatgen.Structure"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.check of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.check:4 of
+msgid "**result** -- List of filtered structures."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.check of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.from_list:1 of
+msgid "Get checker for list of name or number."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.from_pymatgen_structures:1 of
+msgid "Get checker for list of pymatgen.Structure."
+msgstr ""
+
+#: featurebox.data.check_data.CheckElements.passed_idx:1 of
+msgid "The mark for all structures, return np.ndarray index."
+msgstr ""
+

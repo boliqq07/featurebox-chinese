@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.descriptors.EAD.rst:2
+msgid "featurebox.featurizers.descriptors.EAD module"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:1 of
+msgid ""
+"EAD is an atom-centered descriptor that is inspired by Embedded Atom "
+"method (EAM). The EAM utilizes the orbital-dependent density components. "
+"The orbital-dependent component consists of a set of local atomic density"
+" descriptions."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:6 of
+msgid "The functional form of EAD is consistent with:"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:6 of
+msgid ""
+"Zhang, Y., et. al. (2019). The Journal of Physical Chemistry Letters, "
+"10(17), 4962-4967."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:8 of
+msgid ""
+"The user-defined parameters for component of local atomic density "
+"descriptions. i.e. {'L': 2, 'eta': [0.36], 'Rs': [1.0]}"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:11 of
+msgid "The EAD will be calculated within this radius."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:13
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:27 of
+msgid "If True, calculate the derivative of EAD."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD:15
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:28 of
+msgid "If True, calculate the virial stress contribution of EAD."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate:1 of
+msgid "Calculate and return the EAD."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate:3 of
+msgid "ASE Structure object."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate:5 of
+msgid ""
+"A list of the centered atoms to be computed if None, all atoms will be "
+"considered"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate:9 of
+msgid ""
+"**d** -- The user-defined EAD that represent the crystal. d = {'x': [N, "
+"d], 'dxdr': [N, layer, d, 3], 'rdxdr': [N, layer, d, 3, 3], 'elements': "
+"list of elements}"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.calculate
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.EAD.save_dict:1 of
+msgid "save the model as a dictionary in json"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:1 of
+msgid "Calculate the EAD for a center atom i."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:3 of
+msgid "The i-th atom center."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:5 of
+msgid "The total atoms in the crystal unit cell."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:7 of
+msgid "The vector distances of atom i to neighbors j."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:9 of
+msgid "The array of distances of i-th center atom."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:11 of
+msgid "The atomic numbers of neighbors."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:13 of
+msgid "The indices of neighbors centering about atom i."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:15 of
+msgid "The cutoff radius."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:17 of
+msgid ""
+"Rs: float array (d1)     The shift from the center of the Gaussian-type "
+"orbitals. etas: float array (d2)     The width of the Gaussian-type "
+"orbitals. L: int (d3)     The total orbital angular momentum. cutoff: str"
+"     The cutoff function."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:18 of
+msgid "Rs: float array (d1)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:19 of
+msgid "The shift from the center of the Gaussian-type orbitals."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:20 of
+msgid "etas: float array (d2)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:21 of
+msgid "The width of the Gaussian-type orbitals."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:22 of
+msgid "L: int (d3)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:23 of
+msgid "The total orbital angular momentum."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:24 of
+msgid "cutoff: str"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.calculate_eamd:25 of
+msgid "The cutoff function."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm:1 of
+msgid ""
+"Calculate the derivative of Rij norm w. r. t. atom layer. This term "
+"affects only on i and j."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm:4 of
+msgid "The vector distances of atom i to atom j."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm:6 of
+msgid "Id list of center atom i, neighbors atom j, and atom layer."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dRij_dRm_norm:9 of
+msgid ""
+"**dRij_m** -- The derivative of pair atoms w.r.t. atom layer in x, y, z "
+"directions."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list:1 of
+msgid "Get the sign of the derivative of x-y-z ** lx-ly-lz."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list:3 of
+msgid "the unique index of the atom that force is acting on."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list:5 of
+msgid "The list of center atom i w.r.t. the neighbors atom j."
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.dij_dm_list:8 of
+msgid ""
+"**result** -- The signs (+ or -) for dXij_dm (YZ) * dYij_dm (XZ) * "
+"dZij_dm (XY)"
+msgstr ""
+
+#: featurebox.featurizers.descriptors.EAD.get_xyz:1 of
+msgid "(x ** l_x) * (y ** l_y) * (z ** l_z) / (l_x! * l_y! * l_z!) ** 0.5"
+msgstr ""
+

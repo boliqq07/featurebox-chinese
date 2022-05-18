@@ -1,0 +1,82 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.envir.desc_env.rst:2
+msgid "featurebox.featurizers.envir.desc\\_env module"
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env:1 of
+msgid ""
+"Use descriptors form ``pyXtal_FF``, in "
+":mod:`featurebox.test_featurizers.descriptors` all with ``calculate`` "
+"method."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:1 of
+msgid ""
+"Change each center atoms has fill_size neighbors. More neighbors would be"
+" abandoned. Insufficient neighbors would be duplicated."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:5 of
+msgid "dict, dict of descriptor. at lest contain \"x\" and \"dxdr\""
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:6 of
+msgid "int, unstable."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:8 of
+msgid ""
+"(center_indices,center_prop, neighbor_indices, images, distances)  "
+"center_indices: np.ndarray 1d(N,).  neighbor_indices: np.ndarray "
+"2d(N,fill_size).  images: np.ndarray 2d(N,fill_size,l).  distance: "
+"np.ndarray 2d(N,fill_size), None. center_prop: np.ndarray 1d(N,l_c)."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:8 of
+msgid "(center_indices,center_prop, neighbor_indices, images, distances)"
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:10 of
+msgid "center_indices: np.ndarray 1d(N,)."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:12 of
+msgid "neighbor_indices: np.ndarray 2d(N,fill_size)."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:14 of
+msgid "images: np.ndarray 2d(N,fill_size,l)."
+msgstr ""
+
+#: featurebox.featurizers.envir.desc_env.get_5_result:16 of
+msgid ""
+"distance: np.ndarray 2d(N,fill_size), None. center_prop: np.ndarray "
+"1d(N,l_c)."
+msgstr ""
+

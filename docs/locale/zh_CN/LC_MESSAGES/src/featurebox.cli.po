@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: featurebox \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-08 11:09+0800\n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,8 +62,7 @@ msgstr ""
 #: featurebox.cli.nebmake.Dynamics:1 featurebox.cli.nebmake.FixConstraint:1
 #: featurebox.cli.nebmake.LineSearch:1 featurebox.cli.nebmake.NEB:1
 #: featurebox.cli.nebmake.SinglePointCalculator:1
-#: featurebox.cli.nebmake.SinglePointKPoint:1 featurebox.cli.nebmake.Units:1
-#: featurebox.cli.see.CLICommand:1 of
+#: featurebox.cli.nebmake.SinglePointKPoint:1 featurebox.cli.nebmake.Units:1 of
 msgid "Bases: :class:`object`"
 msgstr ""
 
@@ -2211,6 +2210,3 @@ msgstr ""
 msgid "Helper function to easily create Atom XYZ-property."
 msgstr ""
 
-#: ../../src/featurebox.cli.rst:69
-msgid "featurebox.cli.see module"
-msgstr ""

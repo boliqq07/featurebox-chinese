@@ -1,0 +1,148 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.featurizers.envir.local_env.rst:2
+msgid "featurebox.featurizers.envir.local\\_env module"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env:1 of
+msgid "Use NearNeighbors from ``pymatgen``. all with ``get_all_nn_info`` method."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env:4 of
+msgid ""
+"Most in :mod:`pymatgen.analysis.local_env` or in "
+":func:`pymatgen.optimization.neighbors.find_points_in_spheres` The "
+"costumed as following:"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.AllAtomPairs:1
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll:1 of
+msgid "Bases: :class:`pymatgen.analysis.local_env.NearNeighbors`"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.AllAtomPairs:1 of
+msgid "Get all combinations of atoms as bonds in a molecule"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.AllAtomPairs.get_nn_info:1 of
+msgid ""
+"Get near neighbor information :param molecule: pymatgen Molecule :type "
+"molecule: Molecule :param n: number of molecule :type n: int"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.AllAtomPairs.get_nn_info:7 of
+msgid "Returns: List of neighbor dictionary"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll:1 of
+msgid "Determine bonded sites by fixed cutoff."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll:3 of
+msgid ""
+"cutoff radius in Angstrom to look for trial near-neighbor sites (default:"
+" 4.0)."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:1 of
+msgid ""
+"Get all near-neighbor sites as well as the associated image locations and"
+" weights of the site with index n using the closest neighbor distance-"
+"based method."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:5 of
+msgid "input structure."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:7 of
+msgid "index of site for which to determine near neighbors."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:11
+#: of
+msgid ""
+"tuples, each one of which represents a neighbor site, its image location,"
+"     and its weight."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:13
+#: of
+msgid "tuples, each one of which represents a neighbor site, its image location,"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info:14
+#: of
+msgid "and its weight."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.MinimumDistanceNNAll.get_nn_info of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:1 of
+msgid "Bases: :class:`pymatgen.analysis.local_env.VoronoiNN`"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:1 of
+msgid "Not for all structure."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:3 of
+msgid ""
+"tolerance parameter for near-neighbor finding. Faces that are smaller "
+"than `tol` fraction of the largest face are not included in the "
+"tessellation. (default: 0)."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:7 of
+msgid "target element(s)."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:9 of
+msgid ""
+"cutoff radius in Angstrom to look for near-neighbor atoms. Defaults to "
+"13.0."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:12 of
+msgid ""
+"whether to allow infinite vertices in determination of Voronoi "
+"coordination."
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:15 of
+msgid "available in get_voronoi_polyhedra)"
+msgstr ""
+
+#: featurebox.featurizers.envir.local_env.UserVoronoiNN:19 of
+msgid "adjacent. Turn off for faster performance"
+msgstr ""
+

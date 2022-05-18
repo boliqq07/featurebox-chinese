@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.cli.autoincar.rst:2
+msgid "featurebox.cli.autoincar module"
+msgstr ""
+
+#: featurebox.cli.autoincar.CLICommand:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.cli.autoincar.CLICommand:1 of
+msgid ""
+"自动产生 INCAR 脚本（仅供参考）. (-n 内容不要留有空格) 最方便用法: featurebox autoincar -n 半导体静态计算"
+" -p {\"NSW\":100} featurebox autoincar -n 金属弛豫计算"
+msgstr ""
+
+#: featurebox.cli.autoincar.CLICommand:7 of
+msgid "Example"
+msgstr ""
+
+#: featurebox.cli.autoincar.CLICommand:8 of
+msgid "$ featurebox autoincar -n 金属弛豫"
+msgstr ""
+

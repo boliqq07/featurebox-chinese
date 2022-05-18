@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.cli.dbcvk.rst:2
+msgid "featurebox.cli.dbcvk module"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:1 of
+msgid "批量提取d band centor， 保存到当前工作文件夹。 查看参数帮助使用 -h。"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:3 of
+msgid "在 featurebox 中运行，请使用 featurebox dbcvk ... 若复制本脚本并单运行，请使用 python dbcvk ..."
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:6 of
+msgid "首先，请确保 运算子文件夹(sample_i_dir)包含应有 vasp 输入输出文件。 parent_dir(为上层目录，或者上n层目录)"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:9 of
+msgid "如果在 featurebox 中运行多个案例,请指定顶层文件夹:"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:12 featurebox.cli.dbcvk.CLICommand:18 of
+msgid "Example"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:13 of
+msgid "$ featurebox dbcvk -p /home/parent_dir -if POSCAR"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:15 of
+msgid "如果在 featurebox 中运行单个案例，请指定运算子文件夹:"
+msgstr ""
+
+#: featurebox.cli.dbcvk.CLICommand:19 of
+msgid "$ featurebox dbcvk -t s -p /home/parent_dir/***/sample_i_dir"
+msgstr ""
+
+#: featurebox.cli.dbcvk.cal:1 featurebox.cli.dbcvk.read:1 of
+msgid "Run linux cmd and return result, make sure the vaspkit is installed."
+msgstr ""
+

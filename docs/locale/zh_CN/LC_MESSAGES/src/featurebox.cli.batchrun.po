@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.cli.batchrun.rst:2
+msgid "featurebox.cli.batchrun module"
+msgstr ""
+
+#: featurebox.cli.batchrun:1 of
+msgid "以 featurebox 中版本为准，若在其它处更改，请更新 featurebox。"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:1 of
+msgid ""
+"产生任务批处理文件,请保证 -r,-e 至少存在一个. 最方便用法: 1.把该文件放到算例文件夹们的 父文件夹下，并提供 pbs, lsf "
+"等文件模板给 -r 参数."
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:5 of
+msgid "$ featurebox batchrun -p /***/data -r /***/pbs.run"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:7 featurebox.cli.batchrun.CLICommand:22
+#: of
+msgid "文件格式："
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:9 featurebox.cli.batchrun.CLICommand:24
+#: of
+msgid "---- data/"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:11 featurebox.cli.batchrun.CLICommand:26
+#: of
+msgid "|-- data1/"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:13 featurebox.cli.batchrun.CLICommand:34
+#: of
+msgid "|-- data2/"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:15 of
+msgid "|-- pbs.run"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:18 of
+msgid "2.若算例中已经存在pbs, lsf 模板，请提供模板名字（不会包含路径）给 -e 参数."
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:20 of
+msgid "$ featurebox batchrun -p /***/data -e pbs.run"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:28 featurebox.cli.batchrun.CLICommand:36
+#: of
+msgid "||- pbs.run"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:30 of
+msgid "||- POSCAR"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:32 featurebox.cli.batchrun.CLICommand:38
+#: of
+msgid "||- ...."
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:42 of
+msgid "Example"
+msgstr ""
+
+#: featurebox.cli.batchrun.CLICommand:43 of
+msgid "$ featurebox batchrun -p /home/dir_name -if POSCAR"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:1 of
+msgid ""
+"产生批处理提交文件。 最方便用法: 把该文件放到算例同一文件夹下，并提供 pbs or lsf 模板给 run_tem 参数. :param "
+"store_name: str"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:4 of
+msgid "存储名称"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:5 of
+msgid "str, file, None pbs,lsf 模板。可以是文件，也可以是复制过来的字符串,该文件会复制到每个子文件夹."
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:7 of
+msgid ""
+"str,None 1.不需要批量复制时, 使用每个子文件下已经存在 pbs,lsf 模板 该模板的名字必须提供 （run_tem=None, "
+"existed_run ！= None）。 2.使用批量复制时, existed_run_tem 为每个文件夹下新 pbs,lsf 模板名字 "
+"（run_tem！=None, existed_run != None） 3.使用批量复制时, 每个文件夹下新 pbs,lsf "
+"模板名字默认使用源文件名字, 可能会覆盖！ （run_tem!=None, existed_run == None） 4.不使用批量复制, "
+"也不提供 pbs,lsf 模板名字,你用个 p!（run_tem==None, existed_run == None）"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:12 of
+msgid "path,None 数据路径"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:14 of
+msgid ""
+"list,str,None 文件夹过滤条件，默认全选子文件夹 如果为字符串，数据路径的子文件夹中包含该字符串被选择 "
+"如果为列表，数据路径的子文件夹名在列表中的被选择"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:18 of
+msgid "list,str,None 如果为字符串，数据路径的子文件夹中包含该字符串被忽略 如果为列表，数据路径的子文件夹名在该列表中的被忽略"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:21 of
+msgid "INCAR:str     若提供，在每个子文件夹下加入该 INCAR 文件"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:23 of
+msgid "INCAR:str"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:23 of
+msgid "若提供，在每个子文件夹下加入该 INCAR 文件"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.cli.batchrun.upload:25 of
+msgid "./bash.sh 文件"
+msgstr ""
+

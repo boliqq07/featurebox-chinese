@@ -1,0 +1,129 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.selection.exhaustion.rst:2
+msgid "featurebox.selection.exhaustion module"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:1 of
+msgid ""
+"Bases: :class:`sklearn.base.BaseEstimator`, "
+":class:`sklearn.base.MetaEstimatorMixin`, "
+":class:`sklearn.feature_selection._base.SelectorMixin`, "
+":class:`featurebox.selection.mutibase.MutiBase`"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:1 of
+msgid "Exhaustion features combination."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:3 of
+msgid ""
+"The attribute ``estimator_`` is the model with the best feature rather "
+"than all feature combination."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:6
+#: featurebox.selection.exhaustion.Exhaustion:18 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion
+#: featurebox.selection.exhaustion.Exhaustion.fit
+#: featurebox.selection.exhaustion.Exhaustion.predict
+#: featurebox.selection.exhaustion.Exhaustion.score of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:30 of
+msgid "sklearn model or GridSearchCV"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:31 of
+msgid "the n_select list,default,n_select=(3, 4)"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:33 of
+msgid "binding_group size, calculate the correction between binding"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:35 of
+msgid "the range of muti_grade:[min,max)"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:37 of
+msgid "the columns force to index"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:39 of
+msgid "n_jobs"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:41 of
+msgid "refit or not, if refit the model would used all data."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion:43 of
+msgid "if estimator is sklearn model, used cv, else pass"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.fit:1 of
+msgid ""
+"Fit the baf model and then the underlying estimator on the selected "
+"feature."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.fit:3 of
+msgid "The training input0 samples."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.fit:5
+#: featurebox.selection.exhaustion.Exhaustion.score:6 of
+msgid "The target values."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.predict:1 of
+msgid ""
+"Reduce X to the selected feature and then Fit using the underlying "
+"estimator. Only available ``refit=True``."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.predict:4
+#: featurebox.selection.exhaustion.Exhaustion.score:4 of
+msgid "The input0 samples."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.predict of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.predict:7 of
+msgid "**y** -- The predicted target values."
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.predict of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.selection.exhaustion.Exhaustion.score:1 of
+msgid ""
+"Reduce X to the selected feature and then return the score of the "
+"underlying estimator. Only available ``refit=True``."
+msgstr ""
+

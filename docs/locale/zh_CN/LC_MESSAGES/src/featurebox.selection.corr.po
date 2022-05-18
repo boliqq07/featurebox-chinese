@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.selection.corr.rst:2
+msgid "featurebox.selection.corr module"
+msgstr ""
+
+#: featurebox.selection.corr:1 of
+msgid "Calculate the the correction of columns."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:1 of
+msgid ""
+"Bases: :class:`sklearn.base.BaseEstimator`, "
+":class:`sklearn.base.MetaEstimatorMixin`, "
+":class:`sklearn.feature_selection._base.SelectorMixin`, "
+":class:`featurebox.selection.mutibase.MutiBase`"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:1 of
+msgid "Calculate correlation. (Where the result are changed with random state.)"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:4 featurebox.selection.corr.Corr:14
+#: featurebox.selection.corr.Corr:30 featurebox.selection.corr.Corr:48 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:11 of
+msgid "**1. Used for get group exceeding the threshold**"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:25 of
+msgid "Where the (2,4), (2,4,6), (4,6) are with correlation more than 0.7."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:27 of
+msgid "**2. Used for filter automatically by machine**"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:43 of
+msgid "Where the remove_coef are changed with random state."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:45 of
+msgid "**3. Used for binding correlation**"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:62 of
+msgid "Where 4 is filtered , Corresponding to the initial feature 8."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:64 of
+msgid ""
+"[0,1] -> 0; [2,3] -> 1; [4,5]->2; [6,7]->3, 8->4; 9->5; 10->6; 11->7; "
+"12->8; 13->9;"
+msgstr ""
+
+#: featurebox.selection.corr.Corr featurebox.selection.corr.Corr.transform of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.selection.corr.Corr:66 of
+msgid "ranking threshold."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:68 of
+msgid "binding_group size, calculate the correction between binding."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:69 of
+msgid "the range of muti_grade:[min,max)."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:71 of
+msgid "the columns force to index."
+msgstr ""
+
+#: featurebox.selection.corr.Corr:73 of
+msgid "int"
+msgstr ""
+
+#: featurebox.selection.corr.Corr.count_cof:1 of
+msgid "Check cof and count the number."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.inverse_transform_index:1 of
+msgid "inverse the selected index to origin index by support."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.remove_coef:1 of
+msgid "Delete the index of feature with repeat coef."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform:1 of
+msgid "Reduce X to the selected features."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform:3 of
+msgid "The input samples."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform:6 of
+msgid "**X_r** -- The input samples with only the selected features."
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform of
+msgid "Return type"
+msgstr ""
+
+#: featurebox.selection.corr.Corr.transform_index:1 of
+msgid "Get support index."
+msgstr ""
+

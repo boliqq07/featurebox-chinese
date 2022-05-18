@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2021, boliqq07
+# This file is distributed under the same license as the featurebox package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: featurebox \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.0\n"
+
+#: ../../src/featurebox.data.namesplit.rst:2
+msgid "featurebox.data.namesplit module"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit:1 of
+msgid "Bases: :class:`object`"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit:1 of
+msgid "Split the name to table, return ``expand.csv`` and ``folds.csv``."
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit:5 of
+msgid ""
+"Make sure the number below the element or (), For situation that the "
+"number of () before the (), such as \"0.9(BaZr)+0.1(BaZrO3)\"."
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit:8 of
+msgid ""
+"Please set the bracket_follow=True, and for this situation make sure the "
+"first number below ``)`` have ``+`` !!!."
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit:12 of
+msgid "Examples"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform of
+msgid "Parameters"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform:1 of
+msgid "composition names list."
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform:3 of
+msgid "return name, default is 'folds.csv'"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform:5 of
+msgid "return name, default is 'expands.csv'"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform of
+msgid "Returns"
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform:8 of
+msgid "return tables.csv."
+msgstr ""
+
+#: featurebox.data.namesplit.NameSplit.transform of
+msgid "Return type"
+msgstr ""
+
