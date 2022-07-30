@@ -98,7 +98,7 @@ def cmd_sys(cmds=None):
 
 
 def run(args, parser):
-    from mgetool.imports import BatchFile
+    from mgetool.imports import batchfile
     if args.job_type in ["S", "s"]:
         res = cal(args.path_name, store=True, store_name=args.out_name)
         print(args.path_name, res)
