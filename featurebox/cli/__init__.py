@@ -4,23 +4,28 @@
 # @Software : PyCharm
 # @License  : GNU General Public License v3.0
 # @Author   : xxx
-__all__ = ["autoincar", "batchrun", "main", "bgefvk", "bader", "dbcvk", "nebmake"]
 
 __doc__ = """
 The ``cli`` part include:
 
-    "batchrun", "main", "bgefvk", "bader", "dbcvk","nebmake"
+    ``bandgap``, ``dbc``, ``bader``, ``cohp``, ``dos``, ``general``, ``diff``, ``converge``
 
-which run in command line mode. All message (help) could get by ``'-h'`` .
+1. Run in command line mode (suggested). All message (help) could get by ``'-h'`` .
 
-1.Run in featurebox: featurebox bgefvk -h
+Examples::
 
-2.Copy the script and run the single file: python bgefvk.py -h
+    $ featurebox bandgap -h 
+    
+    $ fbx bandgap -h
+    
+    $ featurebox bandgap -p /home/parent_dir
+    
+    $ featurebox bandgap -f /home/parent_dir/paths.temp
 
-Example:
+2. Run in python.
 
->>> $ featurebox bgefvk -p /home/parent_dir
-
->>> $ python bgefvk.py -p /home/parent_dir
+>>> from featurebox.cli.vasp_dos import DosxyzPathOut
+>>> dosxyz = DosxyzPathOut(n_jobs=4, store_single=True)
+>>> result = dosxyz.transfrom(paths_list)
 
 """

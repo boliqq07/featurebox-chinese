@@ -8,14 +8,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: featurebox \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-05-18 11:52+0800\n"
+"POT-Creation-Date: 2022-08-07 13:04+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.9.0\n"
+"Generated-By: Babel 2.9.1\n"
 
 #: ../../src/featurebox.selection.rst:2
 msgid "featurebox.selection package"
@@ -37,10 +37,10 @@ msgstr ""
 #: featurebox.selection.corr.Corr:1
 #: featurebox.selection.exhaustion.Exhaustion:1 featurebox.selection.ga.GA:1 of
 msgid ""
-"Bases: :class:`sklearn.base.BaseEstimator`, "
-":class:`sklearn.base.MetaEstimatorMixin`, "
-":class:`sklearn.feature_selection._base.SelectorMixin`, "
-":class:`featurebox.selection.mutibase.MutiBase`"
+"基类：:py:class:`sklearn.base.BaseEstimator`, "
+":py:class:`sklearn.base.MetaEstimatorMixin`, "
+":py:class:`sklearn.feature_selection._base.SelectorMixin`, "
+":py:class:`featurebox.selection.mutibase.MutiBase`"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForward:1 of
@@ -102,7 +102,7 @@ msgstr ""
 #: featurebox.selection.exhaustion.Exhaustion:6
 #: featurebox.selection.exhaustion.Exhaustion:18 featurebox.selection.ga.GA:4
 #: of
-msgid "Examples"
+msgid "实际案例"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForward:35 of
@@ -136,7 +136,7 @@ msgstr ""
 #: featurebox.selection.ga.GA.predict featurebox.selection.ga.GA.score
 #: featurebox.selection.ga.GA.score_cv featurebox.selection.ga.eaSimple
 #: featurebox.selection.mutibase.MutiBase of
-msgid "Parameters"
+msgid "参数"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForward:61
@@ -233,7 +233,7 @@ msgstr ""
 #: featurebox.selection.corr.Corr.transform
 #: featurebox.selection.exhaustion.Exhaustion.predict
 #: featurebox.selection.ga.eaSimple of
-msgid "Returns"
+msgid "返回"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForward.predict:7
@@ -246,7 +246,7 @@ msgstr ""
 #: featurebox.selection.backforward.BackForwardStable.predict
 #: featurebox.selection.corr.Corr.transform
 #: featurebox.selection.exhaustion.Exhaustion.predict of
-msgid "Return type"
+msgid "返回类型"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForward.score:1
@@ -258,9 +258,9 @@ msgstr ""
 
 #: featurebox.selection.backforward.BackForwardStable:1 of
 msgid ""
-"Bases: :class:`sklearn.base.MetaEstimatorMixin`, "
-":class:`sklearn.feature_selection._base.SelectorMixin`, "
-":class:`sklearn.base.BaseEstimator`"
+"基类：:py:class:`sklearn.base.MetaEstimatorMixin`, "
+":py:class:`sklearn.feature_selection._base.SelectorMixin`, "
+":py:class:`sklearn.base.BaseEstimator`"
 msgstr ""
 
 #: featurebox.selection.backforward.BackForwardStable:1 of
@@ -678,7 +678,7 @@ msgid "featurebox.selection.mutibase module"
 msgstr ""
 
 #: featurebox.selection.mutibase.MutiBase:1 of
-msgid "Bases: :class:`object`"
+msgid "基类：:py:class:`object`"
 msgstr ""
 
 #: featurebox.selection.mutibase.MutiBase:1 of
