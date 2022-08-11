@@ -406,6 +406,7 @@ class DosxyzPathOut(_BasePathOut):
         self.out_file = "dos_xyz_py_all.csv"
         self.software = []
         self.method = method
+        self.extract=None
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -440,6 +441,8 @@ class DosxyzPathOut(_BasePathOut):
         result.to_csv(self.out_file)
         print("'{}' are sored in '{}'".format(self.out_file, os.getcwd()))
         return result
+
+
 
 
 def get_ele_pdos(dos: CompleteDos = None, mark_orbital=None, mark_element=None, sigma=0.1, path=None):
@@ -527,6 +530,7 @@ class DosPy(_BasePathOut):
         self.out_file = "dos_py_all.csv"
         self.software = []
         self.method = method
+        self.extract=None
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -573,6 +577,12 @@ class _CLICommand:
         1.1 前期准备
         INCAR, CONTCAR, DOSCAR
 
+        1.2 INCAR准备
+        INCAR文件参数要求：
+        LORBIT=11
+        NSW = 0
+        IBRION = -1
+
         2.运行文件要求:
         vaspkit <= 1.2.1, for -j in (0,1)
 
@@ -588,7 +598,7 @@ class _CLICommand:
 
         在 featurebox 中运行，请使用 featurebox dos ...
 
-        若复制本脚本并单运行，请使用 python dos ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 

@@ -18,7 +18,7 @@ from featurebox.cli._basepathout import _BasePathOut
 class General(_BasePathOut):
     """Get data from paths and return csv file.
 
-    Notes::
+    Default keys Notes::
 
         mod="pymatgen.io.vasp"         # Module to get class.
         cmd="Vasprun"                  # class to get object.
@@ -76,17 +76,35 @@ class General(_BasePathOut):
         result = pd.DataFrame(data_all).T
         result.to_csv(self.out_file)
         print("'{}' are sored in '{}'".format(self.out_file, os.getcwd()))
+        return result
 
 
 class _CLICommand:
     """
-    批量获取性质（默认vasp.xml能量）。 查看参数帮助使用 -h。
+    批量获取性质。
+
+    本脚本可适用于调取绝大多数pymatgen对象的性质，请自由搭配。
+
+    （默认调用vasprun.xml）。 查看参数帮助使用 -h。
+
+    扩展阅读:
+
+        >>> # 实际操作步骤如下所示，默认四个关键参数如下。
+        >>> # mod="pymatgen.io.vasp", cmd="Vasprun", necessary_files="vasprun.xml", prop="final_energy"
+        >>> from pymatgen.io.vasp import Vasprun
+        >>> vr= Vasprun("vasprun.xml") # or
+        >>> vr= Vasprun.from_file("vasprun.xml") # or
+        >>> result = vr.final_energy
+
+    扩展案例:
+
+        featurebox diff -mod 'pymatgen.core.structure' -cmd Structure -nec CONTCAR -prop volume
 
     补充:
 
         在 featurebox 中运行，请使用 featurebox general ...
 
-        若复制本脚本并单运行，请使用 python general ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 
@@ -101,10 +119,14 @@ class _CLICommand:
     def add_arguments(parser):
         parser.add_argument('-p', '--path_name', type=str, default='.')
         parser.add_argument('-f', '--paths_file', type=str, default='paths.temp')
-        parser.add_argument('-mod', '--mod', type=str, default='pymatgen.io.vasp')
-        parser.add_argument('-cmd', '--cmd', type=str, default='Vasprun')
-        parser.add_argument('-nec', '--nec', type=str, default='vasprun.xml')
-        parser.add_argument('-prop', '--prop', type=str, default='final_energy')
+        parser.add_argument('-mod', '--mod', type=str, default='pymatgen.io.vasp',
+                            help="which module to import. such as: 'pymatgen.io.vasp'.")
+        parser.add_argument('-cmd', '--cmd', type=str, default='Vasprun',
+                            help="which python class to call the necessary file. such as: 'Vasprun'.")
+        parser.add_argument('-nec', '--nec', type=str, default='vasprun.xml',
+                            help="necessary file. such as: 'vasprun.xml'.")
+        parser.add_argument('-prop', '--prop', type=str, default='final_energy',
+                            help="property name. such as: 'final_energy'.")
 
         # mod = "pymatgen.io.vasp", cmd = "Vasprun", necessary_files = "vasprun.xml", prop = "final_energy"
 

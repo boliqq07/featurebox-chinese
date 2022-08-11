@@ -7,6 +7,7 @@
 import multiprocessing
 import os
 import pathlib
+import re
 import warnings
 from abc import abstractmethod
 from typing import Union, Callable, List, Any
@@ -58,6 +59,19 @@ class _BasePathOut:
         return Path(path).abspath() if not isinstance(path, Path) else path
 
     def convert(self, path: Union[os.PathLike, Path, pathlib.Path, str]):
+        """
+        convert raw data in path.
+
+        Parameters
+        ----------
+        path:path
+            path.
+
+        Returns
+        -------
+        data:optional(pd.Dataframe)
+            data table.
+        """
         self.check_software()
         path = self._to_path(path)
         path_bool = self.check_path_and_file(path)
@@ -66,8 +80,20 @@ class _BasePathOut:
         else:
             raise FileNotFoundError
 
-
     def transform(self, paths: List[Union[os.PathLike, Path, pathlib.Path, str]]):
+        """
+        transform raw data in each path containing in paths.
+
+        Parameters
+        ----------
+        paths:list of path
+            paths
+
+        Returns
+        -------
+        data:pd.Dataframe
+            data table.
+        """
         self.check_software()
         paths = [self._to_path(pi) for pi in paths]
         paths_bool = [self.check_path_and_file(pi) for pi in paths]
@@ -170,7 +196,7 @@ class _BasePathOut:
     
     2.Check the necessary files, and software:
     {self.necessary_files}, {self.software}
-    3.Check the necessary files from key parameter:
+    3.Check the key parameter of Method:
     {self.key_help}
     4.Check the intermediate temporary files are generated in each path:
     {self.inter_temp_files}
@@ -205,6 +231,43 @@ class _BasePathOut:
         # print("'{}' are sored in '{}'".format(self.out_file, os.getcwd()))
 
         return pd.DataFrame.from_dict({"File": paths}).T
+
+    @staticmethod
+    def extract(data, *args, format_path: Callable = None, **kwargs):
+        """
+        Extract the message in data, and formed it.
+
+        Parameters
+        ----------
+        data:pd.DateFrame
+            transformed data.
+        format_path:Callable
+            function to deal with each path, for better shown.
+
+        Returns
+        -------
+        res_data:pd.DateFrame
+            extracted and formed data.
+
+        """
+        if format_path == "default":
+            format_path = lambda x: re.split(r" |-|/|\\", x)[-2]
+        elif format_path is None:
+            format_path = lambda x: x
+
+        if "Unnamed: 0" in data:
+            if "File" in data:  # File are repetitive
+                return data
+            else:
+                data["File"] = data["Unnamed: 0"] # File are sole
+                del data["Unnamed: 0"]
+                data = data.set_index("File")
+                data.index = [format_path(ci) for ci in data.index]
+        else:
+            data.index = [format_path(ci) for ci in data.index]
+        return data
+
+
 
 
 class _BasePathOut2(_BasePathOut):
@@ -250,7 +313,6 @@ class _BasePathOut2(_BasePathOut):
 
         return self.batch_after_treatment(paths, res_code)
 
-
     def wrapper(self, paths: List[Path]):
         """For exception."""
 
@@ -269,7 +331,6 @@ class _BasePathOut2(_BasePathOut):
             if self.log:
                 print(self.log_txt)
             return None
-
 
     @abstractmethod
     def run(self, paths: List[Path], files: List = None) -> Any:  # fill

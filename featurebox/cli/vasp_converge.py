@@ -70,6 +70,7 @@ class ConvergeChecker(_BasePathOut):
         self.out_file = "Fail_paths.temp"
         self.software = []
         self.key_help = "Check the outcar."
+        self.extract=None
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -101,7 +102,7 @@ class _CLICommand:
 
         在 featurebox 中运行，请使用 featurebox converge ...
 
-        若复制本脚本并单运行，请使用 python converge ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 

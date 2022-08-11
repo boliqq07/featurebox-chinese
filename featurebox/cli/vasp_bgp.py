@@ -52,6 +52,7 @@ class BandGapPy(_BasePathOut):
         result = pd.DataFrame(data_all).T
         result.to_csv(self.out_file)
         print("'{}' are sored in '{}'".format(self.out_file, os.getcwd()))
+        return result
 
 
 class BandGapStartZero(_BasePathOut):
@@ -171,6 +172,7 @@ class BandGapStartInter(BandGapStartZero):
         self.necessary_files = ["BAND_GAP"]
         self.out_file = "bgp_all.csv"
         self.software = []
+        self.key_help = self.__doc__
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -182,7 +184,9 @@ class BandGapStartInter(BandGapStartZero):
 
 
 class BandGapStartSingleResult(BandGapStartZero):
-    """Avoid Double Calculation."""
+    """Avoid Double Calculation. Just reproduce the 'results_all' from a 'result_single' files.
+    keeping the 'result_single.csv' files exists.
+    """
 
     def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=False):
         super(BandGapStartSingleResult, self).__init__(n_jobs=n_jobs, tq=tq, store_single=store_single)
@@ -211,10 +215,16 @@ class _CLICommand:
     Notes:
 
         1.1 前期准备
-        "EIGENVAL", "INCAR", "DOSCAR"
+        "EIGENVAL", "INCAR", "DOSCAR","POSCAR"
+
+        1.2 INCAR准备
+        INCAR文件参数要求：
+        LORBIT=11
+        NSW = 0
+        IBRION = -1
 
         2.运行文件要求:
-        vaspkit
+        vaspkit <= 1.2.1, for -j in (0,1)
 
     -j 参数说明：
 
@@ -230,7 +240,7 @@ class _CLICommand:
 
         在 featurebox 中运行，请使用 featurebox bandgap ...
 
-        若复制本脚本并单运行，请使用 python bandgap ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 

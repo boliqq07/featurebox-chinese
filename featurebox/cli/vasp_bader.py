@@ -6,7 +6,7 @@
 # @License: MIT License
 
 import os
-from typing import List
+from typing import List, Callable
 
 import numpy as np
 import pandas as pd
@@ -75,6 +75,25 @@ class BaderStartZero(_BasePathOut):
             return result
         else:
             return None
+
+    @staticmethod
+    def extract(data: pd.DataFrame, atoms, format_path: Callable = None):
+
+        if isinstance(atoms, (list, tuple)):
+            data = data.apply(pd.to_numeric, errors='ignore')
+            res = []
+            if format_path is not None:
+                data["File"] = [format_path(ci) for ci in data["File"]]
+            for v in atoms:
+                sel = data[data["Atom Number"] == v + 1]
+                sel = sel[["File", "Bader Ele Move"]].set_index("File")
+                n_name = [f"{i}-{v}" for i in sel.columns]
+                sel.columns = n_name
+                res.append(sel)
+            return pd.concat(res, axis=1)
+        else:
+            raise NotImplementedError
+
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -199,7 +218,7 @@ class _CLICommand:
         chmod u+x ~/bin/chgsum.pl
         chmod u+x ~/bin/bader
 
-        1.2 前期准备
+        1.2 INCAR准备
         INCAR文件参数要求：
         LAECHG = .TRUE.
         LCHARG = .TRUE.
@@ -223,7 +242,7 @@ class _CLICommand:
 
         在 featurebox 中运行，请使用 featurebox bader ...
 
-        若复制本脚本并单运行，请使用 python bader.py ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 

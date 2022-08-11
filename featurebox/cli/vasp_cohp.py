@@ -21,11 +21,12 @@ class COHPStartZero(_BasePathOut):
 
     """
 
-    def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=False):
+    def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=True):
         super(COHPStartZero, self).__init__(n_jobs=n_jobs, tq=tq, store_single=store_single)
         self.necessary_files = ["WAVECAR", "INCAR", "DOSCAR"]
         self.out_file = "COHP_all.csv"
         self.software = ["lobster"]
+        self.key_help = self.__doc__
 
     @staticmethod
     def read(path, store=False):
@@ -57,6 +58,7 @@ class COHPStartZero(_BasePathOut):
             data_all2.update({path: None})
 
         result_single1 = pd.DataFrame.from_dict(data_all).T
+        result_single1.columns = ["length", "icohp (up)", "icohp (down)"]
         result_single2 = pd.DataFrame.from_dict(data_all2).T
 
         if store:
@@ -112,9 +114,9 @@ class COHPStartZero(_BasePathOut):
                 print(f"No data for {pi}")
 
         data_all2 = np.concatenate(data_all2, axis=0)
-        result = pd.DataFrame(data_all2, columns=col, index=paths)
+        result2 = pd.DataFrame(data_all2, columns=col, index=paths)
 
-        result.to_csv("COHP_all.csv")
+        result2.to_csv("COHP_all.csv")
         print("'{}' are sored in '{}'".format("COHP_all.csv", os.getcwd()))
 
         return result
@@ -147,9 +149,12 @@ class COHPStartInter(COHPStartZero):
 
         echo cohpBetween atom 45 atom 31 >> lobsterin
 
+        sleep 30m
+
         lobster > look
 
         cd $old_path
+
 
         done
 
@@ -161,11 +166,12 @@ class COHPStartInter(COHPStartZero):
 
     """
 
-    def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=False):
+    def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=True):
         super(COHPStartInter, self).__init__(n_jobs=n_jobs, tq=tq, store_single=store_single)
         self.necessary_files = ["ICOHPLIST.lobster", "COHPCAR.lobster"]
         self.out_file = "ICOHP_all.csv"
         self.software = []
+        self.key_help = self.__doc__
 
     def run(self, path: Path, files: List = None):
         """3.Run with software and necessary file and get data.
@@ -177,7 +183,9 @@ class COHPStartInter(COHPStartZero):
 
 
 class COHPStartSingleResult(COHPStartInter):
-    """Avoid Double Calculation."""
+    """Avoid Double Calculation. Just reproduce the 'results_all' from a 'result_single' files.
+    keeping the 'result_single.csv' files exists.
+    """
 
     def __init__(self, n_jobs: int = 1, tq: bool = True, store_single=False):
         super(COHPStartSingleResult, self).__init__(n_jobs=n_jobs, tq=tq, store_single=store_single)
@@ -208,6 +216,13 @@ class _CLICommand:
         1.1 前期准备
         "WAVECAR", "INCAR", "DOSCAR"
 
+        1.2 INCAR准备
+        INCAR文件参数要求：
+        LCHARG = .TRUE.
+        LWAVE = .TRUE.
+        NSW = 0
+        IBRION = -1
+
         2.运行文件要求:
         lobster
 
@@ -225,7 +240,7 @@ class _CLICommand:
 
         在 featurebox 中运行，请使用 featurebox cohp ...
 
-        若复制本脚本并单运行，请使用 python cohp ...
+        若复制本脚本并单运行，请使用 python {this}.py ...
 
         如果在 featurebox 中运行多个案例，请指定路径所在文件:
 

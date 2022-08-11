@@ -1,7 +1,7 @@
 import argparse
+import sys as _sys
 import textwrap
 from importlib import import_module
-import sys as _sys
 
 title = """
 -----------------------------------------------------
@@ -47,6 +47,7 @@ Sub-Command : Function
 {}
 
 Add '-h' after sub-command for more help.
+Website: https://featurebox.readthedocs.io
 -----------------------------------------------------""".format("\n".join([i[1] for i in commands_.values()]))
 
 
@@ -235,4 +236,4 @@ class Formatter(argparse.HelpFormatter):
 
 
 if __name__ == "__main__":
-    main(args=["bader","-h"])
+    main(args=["bader", "-h"])

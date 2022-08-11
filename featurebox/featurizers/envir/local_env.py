@@ -7,12 +7,8 @@ The costumed as following:
 """
 import copy
 from typing import Dict, List, Tuple
-from pymatgen.core import Element
-from pymatgen.core import Molecule
-from pymatgen.core.structure import Structure
-from featurebox.utils.predefined_typing import StructureOrMolecule
-import numpy as np
 
+import numpy as np
 from pymatgen.analysis.local_env import (
     NearNeighbors,
     VoronoiNN,
@@ -24,6 +20,11 @@ from pymatgen.analysis.local_env import (
     EconNN,
     CrystalNN,
 )
+from pymatgen.core import Element
+from pymatgen.core import Molecule
+from pymatgen.core.structure import Structure
+
+from featurebox.utils.predefined_typing import StructureOrMolecule
 
 
 def mark_classes(classes: List):
@@ -207,7 +208,7 @@ def get_strategy1_in_spheres(structure: StructureOrMolecule, nn_strategy: NearNe
     nn_strategy_.tol = numerical_tol
 
     _ = pbc  # Force True
-    structure.pbc = np.array([True, True, True])
+    structure.lattice._pbc = np.array([True, True, True])
 
     center_indices = []
     neighbor_indices = []
