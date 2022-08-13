@@ -4,9 +4,9 @@ Select by Corr
 
 - 1. Corr Automatically
 
->>> from sklearn.datasets import load_boston
+>>> from sklearn.datasets import fetch_california_housing
 >>> from featurebox.selection.corr import Corr
->>> x, y = load_boston(return_X_y=True)
+>>> x, y = fetch_california_housing(return_X_y=True)
 >>> co = Corr(threshold=0.7,muti_index=[0,8],muti_grade=2)
 >>> newx = co.fit_transform(x)
 >>> print(x.shape)
@@ -17,9 +17,9 @@ Select by Corr
 
 - 2. Corr Step
 
->>> from sklearn.datasets import load_boston
+>>> from sklearn.datasets import fetch_california_housing
 >>> from featurebox.selection.corr import Corr
->>> x, y = load_boston(return_X_y=True)
+>>> x, y = fetch_california_housing(return_X_y=True)
 >>> co = Corr(threshold=0.7,muti_index=[0,8],muti_grade=2)
 
 Nn range [0,8], the features are binding in to 2 sized: [[0,1],[2,3],[4,5],[6,7]]

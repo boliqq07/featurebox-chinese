@@ -8,7 +8,7 @@ from deap import tools
 from deap.algorithms import varAnd
 from deap.tools import mutShuffleIndexes
 from sklearn.base import BaseEstimator, MetaEstimatorMixin
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing
 from sklearn.feature_selection import SelectorMixin
 from sklearn.metrics import r2_score
 from sklearn.model_selection import cross_val_score
@@ -144,9 +144,9 @@ class GA(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
     Examples
     ---------
-    >>> from sklearn.datasets import load_boston
+    >>> from sklearn.datasets import fetch_california_housing
     >>> from sklearn.svm import SVR
-    >>> data = load_boston()
+    >>> data = fetch_california_housing()
     >>> x = data.data[:50]
     >>> y = data.target[:50]
     >>> svr = SVR(gamma="scale", C=100)
@@ -385,7 +385,7 @@ class GA(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
 
 if __name__ == "__main__":
-    data = load_boston()
+    data = fetch_california_housing()
     x = data.data
     y = data.target
     svr = SVR(gamma="scale", C=100)

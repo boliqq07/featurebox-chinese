@@ -17,10 +17,10 @@ of course, if without setting any bindings, they can degenerate to normal algori
 
 Example:
 
->>> from sklearn.datasets import load_boston
+>>> from sklearn.datasets import fetch_california_housing
 >>> from sklearn.svm import SVR
 >>> from featurebox.selection.backforward import BackForward
->>> X,y = load_boston(return_X_y=True)
+>>> X,y = fetch_california_housing(return_X_y=True)
 >>> svr= SVR()
 >>> bf = BackForward(svr, random_state=1, muti_index=[0,8], muti_grade=2)
 >>> new_x = bf.fit_transform(X,y)

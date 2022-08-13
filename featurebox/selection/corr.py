@@ -15,7 +15,7 @@ from typing import List
 
 import numpy as np
 from sklearn.base import BaseEstimator, MetaEstimatorMixin
-from sklearn.datasets import load_boston
+from sklearn.datasets import fetch_california_housing
 from sklearn.feature_selection import SelectorMixin
 from sklearn.utils import check_random_state
 from sklearn.utils.validation import check_is_fitted
@@ -30,9 +30,9 @@ class Corr(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
     Examples
     ---------
-    >>> from sklearn.datasets import load_boston
+    >>> from sklearn.datasets import fetch_california_housing
     >>> from featurebox.selection import Corr
-    >>> x, y = load_boston(return_X_y=True)
+    >>> x, y = fetch_california_housing(return_X_y=True)
     >>> co = Corr(threshold=0.5)
     >>> nx = co.fit_transform(x)
 
@@ -41,9 +41,9 @@ class Corr(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
     Examples
     ---------
 
-    >>> from sklearn.datasets import load_boston
+    >>> from sklearn.datasets import fetch_california_housing
     >>> from featurebox.selection import Corr
-    >>> x, y = load_boston(return_X_y=True)
+    >>> x, y = fetch_california_housing(return_X_y=True)
     >>> co = Corr(threshold=0.7)
     >>> groups = co.count_cof(np.corrcoef(x[:,:7], rowvar=False))
     >>> groups[1]
@@ -57,9 +57,9 @@ class Corr(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
     Examples
     -----------
-    >>> from sklearn.datasets import load_boston
+    >>> from sklearn.datasets import fetch_california_housing
     >>> from featurebox.selection import Corr
-    >>> x, y = load_boston(return_X_y=True)
+    >>> x, y = fetch_california_housing(return_X_y=True)
     >>> co = Corr(threshold=0.7)
     >>> co.fit(x)
     Corr(threshold=0.7)
@@ -75,9 +75,9 @@ class Corr(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
     Examples
     -----------
-    >>> from sklearn.datasets import load_boston
+    >>> from sklearn.datasets import fetch_california_housing
     >>> from featurebox.selection import Corr
-    >>> x, y = load_boston(return_X_y=True)
+    >>> x, y = fetch_california_housing(return_X_y=True)
     >>> co = Corr(threshold=0.7,muti_index=[0,8],muti_grade=2)
     >>> # in range [0,8], the features are binding in to 2 sized: [[0,1],[2,3],[4,5],[6,7]]
     >>> co.fit(x)
@@ -291,11 +291,11 @@ class Corr(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
 
 if __name__ == "__main__":
-    # x, y = load_boston(return_X_y=True)
+    # x, y = fetch_california_housing(return_X_y=True)
     # co = Corr(threshold=0.7)
     # c = co.count_cof(np.corrcoef(x, rowvar=False))[1]
 
-    x, y = load_boston(return_X_y=True)
+    x, y = fetch_california_housing(return_X_y=True)
     co = Corr(threshold=0.5, muti_index=[0, 8], muti_grade=2)
 
     nx = co.fit_transform(x)
