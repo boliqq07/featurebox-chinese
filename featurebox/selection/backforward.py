@@ -23,7 +23,7 @@ from sklearn.model_selection._validation import _score, cross_val_score
 from sklearn.utils.metaestimators import if_delegate_has_method, _safe_split
 from sklearn.utils.validation import check_is_fitted, check_X_y, check_random_state
 
-from featurebox.selection.mutibase import MutiBase
+from featurebox.selection.multibase import multiBase
 from mgetool.tool import parallelize
 
 
@@ -38,7 +38,7 @@ def _baf_single_fit(train, test, baf, estimator, X, y, scorer, random_state):
     return baf_i.support_, _score(baf_i.estimator_, baf_i.transform(X_test, ), y_test, scorer), baf_i.score_
 
 
-class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
+class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, multiBase):
     """
     BackForward method to selected features.
 
@@ -103,7 +103,7 @@ class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
     """
 
     def __init__(self, estimator: BaseEstimator, n_type_feature_to_select: int = None, primary_feature: int = None,
-                 muti_grade: int = 2, muti_index: List = None, refit=False, cv=5, min_type_feature_to_select: int = 3,
+                 multi_grade: int = 2, multi_index: List = None, refit=False, cv=5, min_type_feature_to_select: int = 3,
                  must_index: List = None, tolerant: float = 0.01, verbose: int = 0, random_state: int = None):
         """
 
@@ -117,9 +117,9 @@ class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
             force select number min
         primary_feature:int
              primary features to start loop, default n_features//2.
-        muti_grade: int
+        multi_grade: int
             group number
-        muti_index:
+        multi_index:
             group index
         must_index:
             must selection index
@@ -132,7 +132,7 @@ class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
         refit:refit
             refit or not. if refit, the model would use all data.
         """
-        super().__init__(muti_grade=muti_grade, muti_index=muti_index, must_index=must_index)
+        super().__init__(multi_grade=multi_grade, multi_index=multi_index, must_index=must_index)
         if hasattr(estimator, "max_features") and refit:
             print("For estimator with 'max_features' attribute, the 'max_features' would changed with "
                   "each sub-data. that is, The 'refit estimator' which with fixed 'max_features' could be with different performance.\n"
@@ -272,10 +272,10 @@ class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
         self.score_ = []
         x, y = check_X_y(x, y, "csc")
-        assert all((self.check_must, self.check_muti)) in [True, False]
+        assert all((self.check_must, self.check_multi)) in [True, False]
         # Initialization
-        if self.check_muti:
-            n_feature = (self.muti_index[1] - self.muti_index[0]) // self.muti_grade + self.muti_index[0]
+        if self.check_multi:
+            n_feature = (self.multi_index[1] - self.multi_index[0]) // self.multi_grade + self.multi_index[0]
         else:
             n_feature = x.shape[1]
         if self.primary_feature is None:
@@ -436,7 +436,7 @@ class BackForwardStable(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
 
     def __init__(self, estimator: BaseEstimator, n_type_feature_to_select: int = None,
                  min_type_feature_to_select: int = 3,
-                 primary_feature: int = None, muti_grade: int = 2, muti_index: List = None,
+                 primary_feature: int = None, multi_grade: int = 2, multi_index: List = None,
                  must_index: List = None, verbose: int = 0, random_state: int = None,
                  times: int = 5, scoring: str = "r2", n_jobs: int = None, refit=False):
         """
@@ -451,9 +451,9 @@ class BackForwardStable(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
             force select number min
         primary_feature:int
              expectation select number
-        muti_grade: int
+        multi_grade: int
             group number
-        muti_index: list
+        multi_index: list
             group index
         must_index: list
             must selection index
@@ -480,8 +480,8 @@ class BackForwardStable(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
         self.n_type_feature_to_select = n_type_feature_to_select
         self.min_type_feature_to_select = min_type_feature_to_select
         self.primary_feature = primary_feature
-        self.muti_grade = muti_grade
-        self.muti_index = muti_index
+        self.multi_grade = multi_grade
+        self.multi_index = multi_index
         self.must_index = must_index
         self.score_ = []
         self.random_state = random_state
@@ -514,7 +514,7 @@ class BackForwardStable(MetaEstimatorMixin, SelectorMixin, BaseEstimator):
                           n_type_feature_to_select=self.n_type_feature_to_select,
                           min_type_feature_to_select=self.min_type_feature_to_select,
                           verbose=self.verbose, primary_feature=self.primary_feature,
-                          muti_grade=self.muti_grade, muti_index=self.muti_index,
+                          multi_grade=self.multi_grade, multi_index=self.multi_index,
                           must_index=self.must_index, random_state=ran)
         rans = ran.randint(0, 1000, self.times)
 

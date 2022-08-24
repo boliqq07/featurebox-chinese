@@ -20,13 +20,13 @@ from sklearn.model_selection import cross_val_score
 from sklearn.utils.metaestimators import if_delegate_has_method
 from sklearn.utils.validation import check_is_fitted, check_X_y
 
-from featurebox.selection.mutibase import MutiBase
+from featurebox.selection.multibase import multiBase
 from mgetool.tool import parallelize
 
 warnings.filterwarnings("ignore")
 
 
-class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
+class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, multiBase):
     """
     Exhaustion features combination.
 
@@ -58,8 +58,8 @@ class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
     ...
     """
 
-    def __init__(self, estimator: BaseEstimator, n_select: Tuple = (2, 3, 4), muti_grade: int = None,
-                 muti_index: List = None, must_index: List = None, n_jobs: int = 1,
+    def __init__(self, estimator: BaseEstimator, n_select: Tuple = (2, 3, 4), multi_grade: int = None,
+                 multi_index: List = None, must_index: List = None, n_jobs: int = 1,
                  refit: bool = False, cv: int = 5):
         """
 
@@ -69,10 +69,10 @@ class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
             sklearn model or GridSearchCV
         n_select:tuple
             the n_select list,default,n_select=(3, 4)
-        muti_grade:list
+        multi_grade:list
             binding_group size, calculate the correction between binding
-        muti_index:list
-            the range of muti_grade:[min,max)
+        multi_index:list
+            the range of multi_grade:[min,max)
         must_index:list
             the columns force to index
         n_jobs:int
@@ -82,7 +82,7 @@ class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
         cv:bool
             if estimator is sklearn model, used cv, else pass
         """
-        super().__init__(muti_grade=muti_grade, muti_index=muti_index, must_index=must_index)
+        super().__init__(multi_grade=multi_grade, multi_index=multi_index, must_index=must_index)
         if hasattr(estimator, "max_features") and refit:
             print("For estimator with 'max_features' attribute, the 'max_features' would changed with "
                   "each sub-data. that is, The 'refit estimator' which with fixed 'max_features' could be with different performance.\n"
@@ -151,7 +151,7 @@ class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, MutiBase):
 
         self.score_ = []
         x, y = check_X_y(x, y, "csc")
-        assert all((self.check_must, self.check_muti)) in [True, False]
+        assert all((self.check_must, self.check_multi)) in [True, False]
 
         feature_list = list(range(x.shape[1]))
         fold_feature_list = self.feature_fold(feature_list)
