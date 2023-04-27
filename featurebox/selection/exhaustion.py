@@ -165,7 +165,7 @@ class Exhaustion(BaseEstimator, MetaEstimatorMixin, SelectorMixin, multiBase):
         feature_combination = slice_all
         index = np.argmax(scores)
         select_feature = feature_combination[int(index)]
-        su = np.zeros(x.shape[1], dtype=np.bool)
+        su = np.zeros(x.shape[1], dtype=bool)
         su[select_feature] = 1
         self.best_score_ = max(scores)
         self.score_ = scores

@@ -297,7 +297,7 @@ class BackForward(BaseEstimator, MetaEstimatorMixin, SelectorMixin, multiBase):
             slice1, best = sub_slice_force(slice1)
 
         select_feature = self.feature_unfold(slice1)
-        su = np.zeros(x.shape[1], dtype=np.bool)
+        su = np.zeros(x.shape[1], dtype=bool)
         su[select_feature] = 1
         self.support_ = su
         self.estimator_ = clone(self.estimator)
